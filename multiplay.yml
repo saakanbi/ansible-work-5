@@ -25,7 +25,7 @@
 
     - name: Create Directory
       file:
-      path: /home/ec2-user/new_dir_n3
-      state: directory   
+        path: /home/ec2-user/new_dir_n3
+        state: directory   
 ...
 
