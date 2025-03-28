@@ -11,7 +11,7 @@
 
     - name: Host code
       git:
-        repo: https://github.com/saakanbi/ansible-work-5.git
-        dest: /var/www/html/new 
+        repo: https://github.com/CeeyIT-Solutions/ecomm-3.git
+        dest: /var/www/html/new2
 ...
 
