@@ -1,7 +1,7 @@
 ---
 - name: Install HTTP SERVER
   become: yes
-  hosts: g2
+  hosts: n3
 
   tasks:
     - name: Install apache
