@@ -1,7 +1,7 @@
 ---
 - name: Install HTTP SERVER
   become: yes
-  hosts: all
+  hosts: n2
 
   tasks:
     - name: Install HTTPD
