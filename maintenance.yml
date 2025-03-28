@@ -1,0 +1,16 @@
+---
+- name: page under maintenance
+  become: yes
+  hosts: n1
+
+  tasks:
+    - name: update maintenance page
+      copy:
+        src: Maintenance.html
+        dest: /var/www/html/index.html
+        remote_src: yes
+      yum:
+        name: git
+        state: present
+...
+
