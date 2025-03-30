@@ -4,29 +4,46 @@
   hosts: g2
 
   tasks:
-    - name: Install HTTPD
+    # RedHat-based systems (RHEL, CentOS, Fedora, etc.)
+    - name: Install HTTPD on RedHat
       dnf:
         name: httpd
         state: present
       when: ansible_distribution == "RedHat"
 
-    - name: start httpd
+    - name: Start HTTPD on RedHat
       service:
         name: httpd
         state: started
         enabled: yes 
       when: ansible_distribution == "RedHat"
 
-    - name: Install apache
+    # Ubuntu-based systems
+    - name: Install Apache2 on Ubuntu
       apt:
         name: apache2
         state: present
       when: ansible_distribution == "Ubuntu"
     
-    - name: start apache2
+    - name: Start Apache2 on Ubuntu
       service:
         name: apache2
         state: started
         enabled: yes
-      when: ansible_distribution == "Ubuntu"      
+      when: ansible_distribution == "Ubuntu"   
+
+    # Amazon Linux-based systems
+    - name: Install HTTPD on Amazon Linux
+      yum:
+        name: httpd
+        state: present
+      when: ansible_distribution == "Amazon"
+    
+    - name: Start HTTPD on Amazon Linux
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+      when: ansible_distribution == "Amazon"
+
 ...
