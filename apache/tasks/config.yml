@@ -1,18 +1,8 @@
+# roles/apache/tasks/config.yml
 ---
- vars:
-  myusername: wole
-
-  -name: static page
-  become: yes
-  hosts: g2
-
-  tasks:
-    - name: update static page
-      copy:
-        src: static.html
-        dest: /var/www/html/static.html
-
-    - name: update dynamic page
-      template:
-        src: dynamic.j2
-        dest: /var/www/html/dynamic.html     
+- name: Ensure Apache is started and enabled
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+  when: ansible_distribution == "RedHat"
