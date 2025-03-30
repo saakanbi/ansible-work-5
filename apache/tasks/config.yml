@@ -1,8 +1,7 @@
-# roles/apache/tasks/config.yml
 ---
 - name: Ensure Apache is started and enabled
   service:
-    name: httpd
+    name: "{{ apache_service_name }}"
     state: started
     enabled: yes
-  when: ansible_distribution == "RedHat"
+  when: ansible_distribution in ["RedHat", "Ubuntu", "Amazon"]
