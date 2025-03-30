@@ -4,8 +4,8 @@
   hosts: n5
 
   roles:
-   -apache
-   -html
+   - apache
+   - html
 
 ...
 
