@@ -1,0 +1,11 @@
+---
+- name: Deploy web app
+  become: yes
+  hosts: n3
+
+  roles:
+   -apache
+   -html
+
+...
+

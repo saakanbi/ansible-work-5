@@ -4,7 +4,7 @@
   hosts: g2
 
   tasks:
-    - name: update static page
+    - name: update dynamic page
       template:
         src: dynamic.j2
         dest: /var/www/html/dynamic.html
