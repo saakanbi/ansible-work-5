@@ -1,7 +1,7 @@
 ---
 - name: Deploy angular app
   become: yes
-  hosts: n3
+  hosts: n5
 
   roles:
    -apache
