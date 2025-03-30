@@ -1,11 +1,17 @@
 ---
 - name: Deploy web app
   become: yes
-  hosts: n5
+  hosts: g2
 
-  roles:
-   - apache
-   - html
-
-...
+  tasks:
+    - name: Set apache service name based on distribution
+      set_fact:
+        apache_service_name: "{{ 'httpd' if ansible_distribution in ['RedHat', 'Amazon'] else 'apache2' }}"
+    
+    - name: Ensure Apache is started and enabled
+      service:
+        name: "{{ apache_service_name }}"
+        state: started
+        enabled: yes
+      when: ansible_distribution in ["RedHat", "Ubuntu", "Amazon"]
 
